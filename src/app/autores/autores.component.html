@@ -14,11 +14,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let autor of autores" (click)="onSelect(autor);">
+            <tr *ngFor="let autor of autores">
                 <td>{{autor.FirstName}}</td>
                 <td>{{autor.LastName}}</td>
                 <td>
-                  <button class="btn btn-primary">Ver Libros</button>
+                  <a routerLink="/autores/{{autor.ID}}">
+                  <button class="btn btn-primary" >Ver Libros</button>
+                </a>
                 </td>
             </tr>
           </tbody>

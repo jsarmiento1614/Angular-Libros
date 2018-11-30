@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">
+      <h1 class="display-4 text-center">Detalles Autor</h1>
+    </div>
+    <div class="card-text">
+        <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr class="bg-dark text-white">
+                  <th>ID</th>
+                  <th>IDBook</th>
+                  <th>FirstName</th>
+                  <th>LastName</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let detalles of AuthorDetails">
+                    <td>{{detalles.ID}}</td>
+                    <td>{{detalles.IDBook}}</td>
+                    <td>{{detalles.FirstName}}</td>
+                    <td>{{detalles.LastName}}</td>
+                    <td>
+                      <a routerLink="/">
+                      <button class="btn btn-primary" >Volver</button>
+                    </a>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+  </div>
+</div>
+
+<div  class="card" >
+  <div class="card-body">
+      <div class="card-title">
+          <h1 class="display-4">Detalle Libros</h1>
+        </div>
+    <div class="card-text">
+      <form #form = ngForm (ngSubmit) = "onEdit();">
+        <div class="form-group">
+          id:
+          <input class="form-control" name="ID" type="number" [(ngModel)] = "AuthorDetails.ID" disabled>
+        </div>
+        <div class="form-group">
+          IDBook:
+          <input type="text" name="IDBook" #IDBook ="ngModel" [class.is-valid] = "IDBook.valid" [class.is-invalid] = "IDBook.invalid" class="form-control" [(ngModel)] = "AuthorDetails.IDBook" required>
+         </div>
+         <button class="btn btn-success" type="submit" [disabled] ="!form.valid">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
